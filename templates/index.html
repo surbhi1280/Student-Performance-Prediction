@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Prediction</title>
+</head>
+<body>
+    <h2>Student Performance Prediction</h2>
+
+    <form action="/predict" method="post">
+        Study Hours: <input type="number" name="study_hours"><br><br>
+        Attendance Rate: <input type="number" name="attendance"><br><br>
+        Previous Grades: <input type="number" name="grades"><br><br>
+
+        Activities:
+        <select name="activities">
+            <option>Yes</option>
+            <option>No</option>
+        </select><br><br>
+
+        Parent Education:
+        <select name="education">
+            <option>High School</option>
+            <option>Graduate</option>
+            <option>Postgraduate</option>
+        </select><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction is defined %}
+    <div class="alert mt-4 text-center
+        {% if prediction == 'PASS' %}alert-success{% else %}alert-danger{% endif %}">
+        <h4>Result: {{ prediction }}</h4>
+    </div>
+{% endif %}
+</body>
+</html>
+
