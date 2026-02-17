@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* DARK OUTSIDE BACKGROUND */
+        body{
+            background:#25bfd3;
+            min-height:100vh;
+        }
+
+        /* BABY PINK CARD */
+        .card{
+            background:#ec95b4 !important;
+            border-radius:20px;
+        }
+
+        /* button color */
+        .btn-success{
+            background:#3b9c85;
+            border:none;
+        }
+
+        .btn-success:hover{
+            background:#4327fbe9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center mb-4">🎓 Student Exam Score Prediction</h2>
+
+        <form action="/predict" method="post">
+
+            <div class="row">
+
+                <div class="col-md-4 mb-3">
+                    <label>Hours Studied</label>
+                    <input type="number" step="any" name="Hours_Studied" class="form-control" required>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Attendance (%)</label>
+                    <input type="number" step="any" name="Attendance" class="form-control" required>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Sleep Hours</label>
+                    <input type="number" step="any" name="Sleep_Hours" class="form-control" required>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Previous Scores</label>
+                    <input type="number" step="any" name="Previous_Scores" class="form-control" required>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Tutoring Sessions</label>
+                    <input type="number" step="any" name="Tutoring_Sessions" class="form-control" required>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Physical Activity</label>
+                    <input type="number" step="any" name="Physical_Activity" class="form-control" required>
+                </div>
+
+                <!-- dropdowns -->
+                <div class="col-md-4 mb-3">
+                    <label>Parental Involvement</label>
+                    <select name="Parental_Involvement" class="form-control">
+                        <option value="0">Low</option>
+                        <option value="1">Medium</option>
+                        <option value="2">High</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Access to Resources</label>
+                    <select name="Access_to_Resources" class="form-control">
+                        <option value="0">Low</option>
+                        <option value="1">Medium</option>
+                        <option value="2">High</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Motivation Level</label>
+                    <select name="Motivation_Level" class="form-control">
+                        <option value="0">Low</option>
+                        <option value="1">Medium</option>
+                        <option value="2">High</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Family Income</label>
+                    <select name="Family_Income" class="form-control">
+                        <option value="0">Low</option>
+                        <option value="1">Medium</option>
+                        <option value="2">High</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Teacher Quality</label>
+                    <select name="Teacher_Quality" class="form-control">
+                        <option value="0">Low</option>
+                        <option value="1">Medium</option>
+                        <option value="2">High</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>School Type</label>
+                    <select name="School_Type" class="form-control">
+                        <option value="0">Public</option>
+                        <option value="1">Private</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Peer Influence</label>
+                    <select name="Peer_Influence" class="form-control">
+                        <option value="0">Negative</option>
+                        <option value="1">Neutral</option>
+                        <option value="2">Positive</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Internet Access</label>
+                    <select name="Internet_Access" class="form-control">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                  
+
+                <div class="col-md-4 mb-3">
+                    <label>Extracurricular Activities</label>
+                    <select name="Extracurricular_Activities" class="form-control">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                 
+                <div class="col-md-4 mb-3">
+                     <label>Learning Disabilities</label>
+                    <select name="Learning_Disabilities" class="form-control">
+                       <option value="0">No</option>
+                       <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Parental Education Level</label>
+                    <select name="Parental_Education_Level" class="form-control">
+                      <option value="0">High School</option>
+                      <option value="1">College</option>
+                      <option value="2">Postgraduate</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Distance From Home</label>
+                    <select name="Distance_from_Home" class="form-control">
+                      <option value="0">Near</option>
+                      <option value="1">Moderate</option>
+                      <option value="2">Far</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label>Gender</label>
+                    <select name="Gender" class="form-control">
+                        <option value="0">Male</option>
+                        <option value="1">Female</option>
+                    </select>
+                </div>
+                
+
+            </div>
+
+            
+            
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-success btn-lg">
+                    Predict Score
+                </button>
+            </div>
+
+        </form>
+
+        {% if prediction_text %}
+        <div class="alert alert-info text-center mt-4">
+            <h4>{{ prediction_text }}</h4>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+<script src="final.js"></script>
+</body>
+</html>
