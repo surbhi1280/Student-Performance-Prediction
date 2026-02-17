@@ -1,0 +1,45 @@
+body{
+    background:#0b1d3a;
+    min-height:100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.card{
+    background:#ffc0cb !important;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+    transition:0.5s;
+}
+
+
+input, select{
+    border-radius:10px !important;
+    border:none !important;
+    padding:10px;
+    transition:0.3s;
+}
+
+
+input:focus, select:focus{
+    box-shadow:0 0 10px #0b1d3a !important;
+    transform:scale(1.03);
+}
+
+
+.btn-success{
+    background:#0b1d3a !important;
+    border:none;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.btn-success:hover{
+    background:#08142a !important;
+    transform:scale(1.05);
+}
+
+
+.alert{
+    border-radius:12px;
+}
