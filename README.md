@@ -2,6 +2,7 @@
 📌 Project Overview
 
 -This is a Machine Learning web application that predicts a student's Exam Score based on academic and socio-economic factors.
+
 -The model is trained using multiple regression algorithms and deployed using Flask.
 
 🚀 Features
